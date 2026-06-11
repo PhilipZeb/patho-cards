@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knie-Arthrose verstehen – Gonarthrose</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F8F7F4;
+    --text: #1A1A1A;
+    --text-soft: #4A4A4A;
+    --accent: #2B6E5A;
+    --accent-light: #E8F2ED;
+    --warm: #D4A574;
+    --warm-light: #FDF6F0;
+    --border: #E2E0DB;
+    --white: #FFFFFF;
+    --red-soft: #C0392B;
+    --red-bg: #FDF0EF;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Header */
+  .header {
+    background: var(--accent);
+    color: var(--white);
+    padding: 32px 24px 28px;
+  }
+  .header-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.75;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .header p {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+
+  .content { padding: 0 24px; }
+
+  /* TL;DR */
+  .tldr {
+    background: var(--accent-light);
+    border-radius: 14px;
+    padding: 20px;
+    margin: 24px 0;
+  }
+  .tldr h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .tldr ul { list-style: none; }
+  .tldr li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .tldr li:last-child { margin-bottom: 0; }
+  .tldr li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  section { margin: 32px 0; }
+  section h2 {
+    font-family: 'Lora', serif;
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  section p { margin-bottom: 14px; color: var(--text-soft); }
+  section p strong { color: var(--text); font-weight: 600; }
+
+  /* Myth cards */
+  .myth {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    background: var(--white);
+  }
+  .myth .label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .myth .myth-label { background: var(--red-bg); color: var(--red-soft); }
+  .myth .fact-label { background: var(--accent-light); color: var(--accent); }
+  .myth .claim {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+    font-size: 15.5px;
+  }
+  .myth .fact { font-size: 14.5px; color: var(--text-soft); }
+  .myth .fact sup a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+  /* Do-list */
+  .dolist { list-style: none; margin-top: 4px; }
+  .dolist li {
+    background: var(--warm-light);
+    border-left: 3px solid var(--warm);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 15px;
+  }
+  .dolist li strong { color: var(--text); }
+
+  /* Callout */
+  .callout {
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 14px;
+    padding: 20px;
+    margin: 28px 0;
+  }
+  .callout p { color: var(--white); opacity: 0.95; margin: 0; font-size: 15px; }
+  .callout strong { color: var(--white); }
+
+  sup a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.78em; }
+
+  /* Sources */
+  .sources {
+    border-top: 1px solid var(--border);
+    margin-top: 36px;
+    padding-top: 24px;
+  }
+  .sources h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-soft);
+    margin-bottom: 14px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+  }
+  .sources ol { padding-left: 20px; }
+  .sources li {
+    font-size: 12.5px;
+    color: var(--text-soft);
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .sources a { color: var(--accent); word-break: break-word; }
+
+  /* Footer */
+  .footer {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    padding: 24px;
+    margin-top: 24px;
+    font-size: 12px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+  .footer .meta { margin-bottom: 12px; }
+  .footer .meta span { display: block; }
+  .footer .disclaimer { font-style: italic; }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-label">Patienten-Info · Physiotherapie</div>
+    <h1>Knie-Arthrose verstehen</h1>
+    <p>Was Arthrose im Knie wirklich bedeutet – und warum Bewegung Ihr stärkstes Werkzeug ist.</p>
+  </div>
+
+  <div class="content">
+
+    <div class="tldr">
+      <h2>Das Wichtigste in 30 Sekunden</h2>
+      <ul>
+        <li>Arthrose ist kein einfacher „Verschleiß“, der sich nur abnutzt – Ihr Gelenk ist lebendig und reagiert auf Belastung.</li>
+        <li>Bewegung schadet dem Knorpel nicht. Sie ist die wirksamste Behandlung.</li>
+        <li>Ein „schlimmes“ Röntgenbild sagt wenig über Ihre Schmerzen aus.</li>
+        <li>Die meisten Menschen brauchen keine Operation.</li>
+      </ul>
+    </div>
+
+    <section>
+      <h2>Was ist eine Gonarthrose?</h2>
+      <p>„Gonarthrose“ ist der Fachbegriff für Arthrose im Kniegelenk. Oft wird sie als reiner „Gelenkverschleiß“ beschrieben – wie ein Autoreifen, der mit den Jahren abgefahren wird. <strong>Dieses Bild stimmt nicht.</strong></p>
+      <p>Ihr Knorpel ist kein toter Werkstoff. Er ist lebendiges Gewebe, das sich an Belastung anpasst – ähnlich wie ein Muskel stärker wird, wenn man ihn trainiert. Bei einer Arthrose ist das Gleichgewicht zwischen Auf- und Abbau gestört, und das Gelenk reagiert mit Schmerz, Steifigkeit und manchmal Schwellung. Das ist behandelbar.</p>
+    </section>
+
+    <section>
+      <h2>Mythen-Check</h2>
+
+      <div class="myth">
+        <span class="label myth-label">Mythos</span>
+        <div class="claim">„Bewegung nutzt meinen Knorpel weiter ab.“</div>
+        <span class="label fact-label">Fakt</span>
+        <div class="fact">Das Gegenteil ist belegt. Studien zeigen, dass belastendes Training den Knorpel nicht schädigt und Marker für Knorpelabbau und Entzündung nicht erhöht.<sup><a href="#q2">2</a></sup> Bewegung ist Pflege für das Gelenk, kein Risiko.</div>
+      </div>
+
+      <div class="myth">
+        <span class="label myth-label">Mythos</span>
+        <div class="claim">„Mein Röntgenbild ist schlecht – also muss ich starke Schmerzen haben.“</div>
+        <span class="label fact-label">Fakt</span>
+        <div class="fact">Röntgenbild und Schmerz passen oft nicht zusammen. In einer Untersuchung erklärte das Röntgenbild nur rund 4 % der tatsächlichen Knie­funktion.<sup><a href="#q3">3</a></sup> Viele Menschen mit „auffälligem“ Bild haben kaum Beschwerden – und umgekehrt.</div>
+      </div>
+
+      <div class="myth">
+        <span class="label myth-label">Mythos</span>
+        <div class="claim">„Schonen ist am besten, bis es nicht mehr weh tut.“</div>
+        <span class="label fact-label">Fakt</span>
+        <div class="fact">Dauerhaftes Schonen schwächt die Muskulatur, die das Knie stabilisiert, und kann die Beschwerden verlängern. Aktive Bewegungstherapie senkt Schmerz und verbessert die Funktion – über alle untersuchten Trainingsformen hinweg.<sup><a href="#q1">1</a></sup></div>
+      </div>
+
+      <div class="myth">
+        <span class="label myth-label">Mythos</span>
+        <div class="claim">„Am Ende hilft sowieso nur eine Operation.“</div>
+        <span class="label fact-label">Fakt</span>
+        <div class="fact">Bei Verschleiß-bedingten Knie- und Meniskus­problemen bringt eine Gelenkspiegelung (Arthroskopie) langfristig keinen Vorteil gegenüber Training.<sup><a href="#q4">4</a></sup> Fachgesellschaften empfehlen sie ausdrücklich <strong>nicht</strong> als erste Maßnahme.<sup><a href="#q5">5</a></sup></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Was wirklich hilft</h2>
+      <ul class="dolist">
+        <li><strong>Bewegung &amp; Training.</strong> Die Nummer eins. Kraft-, Ausdauer- und gelenkschonende Übungen reduzieren nachweislich Schmerz und Steifigkeit und verbessern die Beweglichkeit.<sup><a href="#q1">1</a></sup></li>
+        <li><strong>Regelmäßigkeit schlägt Intensität.</strong> Lieber oft und moderat als selten und hart. Ihr Knie braucht Routine, keine Höchstleistung.</li>
+        <li><strong>Gewicht, wenn relevant.</strong> Bei Übergewicht kann eine Kombination aus Ernährung und Bewegung die Beschwerden zusätzlich verringern – der Effekt ist real, aber kein Wundermittel.<sup><a href="#q6">6</a></sup></li>
+        <li><strong>Strukturierte Programme.</strong> Konzepte wie „GLA:D“ verbinden Aufklärung und Übung gezielt für Hüft- und Knie­arthrose.<sup><a href="#q7">7</a></sup></li>
+      </ul>
+    </section>
+
+    <div class="callout">
+      <p><strong>Und passive Behandlungen?</strong> Manuelle Therapie, Massage oder Wärme können kurzfristig angenehm sein und ergänzen – ersetzen aber das aktive Training nicht. Langfristig bringt manuelle Therapie zusätzlich zur Bewegung keinen Mehrwert.<sup><a href="#q8" style="color:#fff">8</a></sup></p>
+    </div>
+
+    <section>
+      <h2>Ihre nächsten Schritte</h2>
+      <p>Sprechen Sie mit Ihrer Therapeutin oder Ihrem Therapeuten über ein Übungsprogramm, das zu Ihnen passt. Bleiben Sie in Bewegung, auch an Tagen mit leichten Beschwerden – etwas Schmerz beim Üben ist normal und kein Zeichen für Schaden. Bei plötzlich starker Schwellung, Blockaden oder nächtlichen Ruheschmerzen melden Sie sich in der Praxis.</p>
+    </section>
+
+    <div class="sources" id="quellen">
+      <h2>Quellen</h2>
+      <ol>
+        <li id="q1">Mo L. et al. (2023). Exercise Therapy for Knee Osteoarthritis: A Systematic Review and Network Meta-analysis. <em>Orthop J Sports Med</em>. <a href="https://doi.org/10.1177/23259671231172773">doi.org/10.1177/23259671231172773</a></li>
+        <li id="q2">Bricca A. et al. (2019). Impact of Exercise Therapy on Molecular Biomarkers Related to Cartilage and Inflammation in Knee Osteoarthritis: Systematic Review and Meta-Analysis of RCTs. <em>Arthritis Care Res</em>. <a href="https://doi.org/10.1002/acr.23786">doi.org/10.1002/acr.23786</a></li>
+        <li id="q3">Bensalma F. et al. (2022). Biomechanical markers vs. radiographic severity in knee osteoarthritis. <em>BMC Musculoskelet Disord</em>. <a href="https://doi.org/10.1186/s12891-022-05845-1">doi.org/10.1186/s12891-022-05845-1</a></li>
+        <li id="q4">Rotini M. et al. (2022). Arthroscopic surgery or exercise therapy for degenerative meniscal lesions: a systematic review of systematic reviews. <em>Musculoskelet Surg</em>. <a href="https://doi.org/10.1007/s12306-022-00760-z">doi.org/10.1007/s12306-022-00760-z</a></li>
+        <li id="q5">Beaufils P. et al. (2017). Surgical management of degenerative meniscus lesions: the 2016 ESSKA meniscus consensus. <em>Knee Surg Sports Traumatol Arthrosc</em>. <a href="https://doi.org/10.1007/s00167-016-4407-4">doi.org/10.1007/s00167-016-4407-4</a></li>
+        <li id="q6">Messier S.P. et al. (2022). Effect of Diet and Exercise on Knee Pain in Patients With Osteoarthritis and Overweight or Obesity: A Randomized Clinical Trial. <em>JAMA</em>. <a href="https://doi.org/10.1001/jama.2022.21893">doi.org/10.1001/jama.2022.21893</a></li>
+        <li id="q7">Zywiel M. et al. (2021). Implementation of the GLA:D Program for the Management of Hip and Knee Osteoarthritis. <em>Healthc Q</em>. <a href="https://doi.org/10.12927/hcq.2021.26464">doi.org/10.12927/hcq.2021.26464</a></li>
+        <li id="q8">Runge N. et al. (2022). The Benefits of Adding Manual Therapy to Exercise Therapy for Knee or Hip Osteoarthritis: Systematic Review With Meta-analysis. <em>J Orthop Sports Phys Ther</em>. <a href="https://doi.org/10.2519/jospt.2022.11062">doi.org/10.2519/jospt.2022.11062</a></li>
+      </ol>
+      <p style="font-size:11.5px;color:var(--text-soft);margin-top:10px;">Literatur recherchiert über PubMed und Consensus.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="meta">
+      <span><strong>Fachlich geprüft von:</strong> [Name der Reviewerin / des Reviewers]</span>
+      <span><strong>Stand:</strong> [Datum eintragen]</span>
+      <span><strong>Erstellt von:</strong> Philip Zebrowski</span>
+    </div>
+    <p class="disclaimer">Diese Information ersetzt keine individuelle Untersuchung, Diagnose oder Beratung durch eine Ärztin, einen Arzt oder eine therapeutische Fachperson. Sie dient ausschließlich der allgemeinen Aufklärung. Bei akuten oder anhaltenden Beschwerden wenden Sie sich bitte an Ihre behandelnde Praxis.</p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schulterschmerzen verstehen – Impingement</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #F8F7F4;
+    --text: #1A1A1A;
+    --text-soft: #4A4A4A;
+    --accent: #2B6E5A;
+    --accent-light: #E8F2ED;
+    --warm: #D4A574;
+    --warm-light: #FDF6F0;
+    --border: #E2E0DB;
+    --white: #FFFFFF;
+    --red-soft: #C0392B;
+    --red-bg: #FDF0EF;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Header */
+  .header {
+    background: var(--accent);
+    color: var(--white);
+    padding: 32px 24px 28px;
+    position: relative;
+  }
+
+  .header-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.75;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .header h1 {
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .header p {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+
+  /* Content */
+  .content {
+    padding: 0 24px;
+  }
+
+  /* TLDR Box */
+  .tldr {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 20px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .tldr-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .tldr p {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* Sections */
+  .section {
+    margin: 32px 0;
+  }
+
+  .section h2 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .section p {
+    font-size: 15px;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+  }
+
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Myth Buster */
+  .myth-box {
+    background: var(--warm-light);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+
+  .myth-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--red-soft);
+    margin-bottom: 6px;
+  }
+
+  .myth-text {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 10px;
+    text-decoration: line-through;
+    text-decoration-color: var(--red-soft);
+    text-decoration-thickness: 1.5px;
+  }
+
+  .fact-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+
+  .fact-text {
+    font-size: 15px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  /* Good news box */
+  .good-news {
+    background: var(--accent-light);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 16px 0;
+    text-align: center;
+  }
+
+  .good-news .emoji {
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+
+  .good-news p {
+    font-size: 15px;
+    color: var(--accent);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  /* Do / Don't */
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .do-card, .dont-card {
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .do-card {
+    background: var(--accent-light);
+  }
+
+  .dont-card {
+    background: var(--red-bg);
+  }
+
+  .do-card .card-icon,
+  .dont-card .card-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .do-card .card-title { color: var(--accent); }
+  .dont-card .card-title { color: var(--red-soft); }
+
+  .card-list {
+    list-style: none;
+    font-size: 13.5px;
+    color: var(--text-soft);
+    line-height: 1.7;
+  }
+
+  .card-list li::before {
+    margin-right: 6px;
+  }
+
+  .do-card .card-list li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
+  .dont-card .card-list li::before { content: "✗ "; color: var(--red-soft); font-weight: 700; }
+
+  /* Timeline */
+  .timeline {
+    margin: 16px 0;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .timeline-item:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-week {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 70px;
+    padding-top: 2px;
+  }
+
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.55;
+  }
+
+  /* Warning box */
+  .warning {
+    background: var(--red-bg);
+    border-left: 3px solid var(--red-soft);
+    border-radius: 0 8px 8px 0;
+    padding: 20px;
+    margin: 24px 0;
+  }
+
+  .warning-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red-soft);
+    margin-bottom: 8px;
+  }
+
+  .warning p {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  .warning ul {
+    list-style: none;
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+
+  .warning ul li {
+    padding: 3px 0;
+  }
+
+  .warning ul li::before {
+    content: "→ ";
+    color: var(--red-soft);
+    font-weight: 600;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 32px;
+  }
+
+  .footer p {
+    font-size: 12px;
+    color: var(--text-soft);
+    opacity: 0.6;
+    line-height: 1.6;
+  }
+
+  .footer .source-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-soft);
+    opacity: 0.5;
+    margin-bottom: 8px;
+  }
+
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* Smooth appearance */
+  @media (prefers-reduced-motion: no-preference) {
+    .section, .tldr, .myth-box, .good-news, .do-dont, .warning {
+      animation: fadeUp 0.4s ease-out both;
+    }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">Patienteninformation</div>
+  <h1>Schulterschmerzen?<br>Kein Grund zur Panik.</h1>
+  <p>Was „Schulter-Impingement" wirklich bedeutet – und warum Ihre Schulter besser ist, als Sie gerade denken.</p>
+</div>
+
+<div class="content">
+
+  <div class="tldr">
+    <div class="tldr-title">Das Wichtigste zuerst</div>
+    <p>Ihre Schulter ist nicht kaputt. „Impingement" beschreibt eine Reizung – keine strukturelle Zerstörung. Die große Mehrheit der Betroffenen wird mit gezielter Bewegung deutlich besser. Ohne OP.</p>
+  </div>
+
+  <div class="section">
+    <h2>Was passiert da eigentlich?</h2>
+    <p>Unter dem Schulterdach verlaufen Sehnen und ein kleiner Schleimbeutel. Bei bestimmten Bewegungen – besonders über Kopf – kann es dort eng werden. Das führt zu Reizungen und Schmerzen.</p>
+    <p>Häufig betroffen: Menschen, die viel am Schreibtisch sitzen. Nicht weil Sitzen „schlecht" ist, sondern weil die Schultermuskulatur zu wenig gefordert wird und dann bei ungewohnter Belastung überreagiert.</p>
+  </div>
+
+  <div class="myth-box">
+    <div class="myth-label">Mythos</div>
+    <div class="myth-text">„Da reibt Knochen auf Knochen – das wird nur schlimmer."</div>
+    <div class="fact-label">Realität</div>
+    <div class="fact-text">Aktuelle Forschung zeigt: Der Begriff „Impingement" ist veraltet und irreführend. Es ist kein mechanisches Einklemmen, sondern eine Empfindlichkeit der Sehne, die sich mit Training wieder normalisiert. Schmerz ≠ Schaden.</div>
+  </div>
+
+  <div class="section">
+    <h2>Warum Schonung das Falsche ist</h2>
+    <p>Ihr erster Instinkt ist wahrscheinlich: Arm ruhig halten, bloß nichts machen, was weh tut. Das ist verständlich – aber kontraproduktiv.</p>
+    <p>Sehnen brauchen Belastung, um sich zu regenerieren. Wer die Schulter schont, schwächt genau die Muskulatur, die sie stabilisiert. Der Schmerz bleibt – oder wird schlimmer.</p>
+    <p>Das heißt nicht: durch den Schmerz durcharbeiten. Es heißt: kontrollierte, dosierte Bewegung. Genau das macht Ihre Physiotherapie.</p>
+  </div>
+
+  <div class="good-news">
+    <div class="emoji">📊</div>
+    <p>Über 80 % der Schulter-Impingement-Beschwerden bessern sich mit konservativer Therapie – also ohne Operation.</p>
+  </div>
+
+  <div class="section">
+    <h2>Was hilft – was nicht</h2>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-card">
+      <div class="card-icon">✅</div>
+      <div class="card-title">Hilft</div>
+      <ul class="card-list">
+        <li>Übungen vom Therapeuten</li>
+        <li>Schulter bewegen</li>
+        <li>Geduld (6–12 Wochen)</li>
+        <li>Alltag normal weiterführen</li>
+      </ul>
+    </div>
+    <div class="dont-card">
+      <div class="card-icon">❌</div>
+      <div class="card-title">Hilft nicht</div>
+      <ul class="card-list">
+        <li>Arm komplett ruhigstellen</li>
+        <li>Googeln bis zur Panik</li>
+        <li>Ständig MRT fordern</li>
+        <li>Auf OP hoffen</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Was Sie realistisch erwarten können</h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-week">Woche 1–2</div>
+      <div class="timeline-desc">Schmerzlinderung, erste leichte Übungen. Es darf noch ziehen – das ist normal und kein Zeichen von Verschlechterung.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">Woche 3–6</div>
+      <div class="timeline-desc">Beweglichkeit verbessert sich spürbar. Alltagsbewegungen werden leichter. Übungen werden anspruchsvoller.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">Woche 6–12</div>
+      <div class="timeline-desc">Kraft baut sich auf. Die meisten Patienten sind hier deutlich besser oder beschwerdefrei.</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-week">Danach</div>
+      <div class="timeline-desc">Eigenständig weitertrainieren. 2–3 Übungen, 10 Minuten, 3x pro Woche reichen oft aus, um beschwerdefrei zu bleiben.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Ihre Rolle ist entscheidend</h2>
+    <p>Physiotherapie wirkt nicht wie eine Tablette. Die Sitzung in der Praxis ist wichtig – aber was Sie zwischen den Terminen tun, entscheidet über das Ergebnis.</p>
+    <p>Machen Sie Ihre Übungen. Nicht perfekt, nicht schmerzfrei, aber regelmäßig. Drei Übungen, dreimal pro Woche – mehr braucht es oft nicht. Wenn Sie unsicher sind, fragen Sie Ihren Therapeuten. Dafür sind wir da.</p>
+  </div>
+
+  <div class="myth-box">
+    <div class="myth-label">Mythos</div>
+    <div class="myth-text">„Mein MRT zeigt einen Befund – also brauche ich eine OP."</div>
+    <div class="fact-label">Realität</div>
+    <div class="fact-text">MRT-Befunde an der Schulter sind bei Menschen über 40 völlig normal – auch ohne Beschwerden. Eine Studie zeigt: Über 50 % der schmerzfreien Personen über 40 haben „auffällige" Schulter-MRTs. Ein Befund auf dem Bild bedeutet nicht, dass er Ihre Schmerzen verursacht.</div>
+  </div>
+
+  <div class="warning">
+    <div class="warning-title">Wann Sie nochmal zum Arzt sollten</div>
+    <p>In seltenen Fällen steckt mehr dahinter. Gehen Sie zeitnah zum Arzt, wenn:</p>
+    <ul>
+      <li>Die Schmerzen nach einem Unfall/Sturz auftraten</li>
+      <li>Sie nachts nicht schlafen können vor Schmerz</li>
+      <li>Ihre Schulter plötzlich kraftlos wird</li>
+      <li>Sie Fieber oder Schwellungen bemerken</li>
+      <li>Die Beschwerden sich trotz Therapie über 12 Wochen nicht bessern</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" style="text-align: center; opacity: 0.8;">
+    <p style="font-size: 15px; color: var(--accent); font-weight: 600;">Ihre Schulter kann das.<br>Geben Sie ihr die Chance.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="source-label">Hinweis</div>
+  <p>Diese Seite ersetzt keine ärztliche oder therapeutische Beratung. Die Inhalte basieren auf aktueller wissenschaftlicher Evidenz und dienen der allgemeinen Information. Bei Beschwerden wenden Sie sich an Ihren Physiotherapeuten oder Arzt.</p>
+  <p style="margin-top: 12px; opacity: 0.5;">Letzte Aktualisierung: Juni 2026</p>
+</div>
+
+</body>
+</html>
