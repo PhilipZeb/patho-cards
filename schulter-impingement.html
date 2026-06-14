@@ -3,485 +3,403 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Schulterschmerzen verstehen – Impingement</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<title>Schulterschmerz unter dem Schulterdach (subakromiales Schmerzsyndrom)</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
   :root {
-    --bg: #F8F7F4;
-    --text: #1A1A1A;
-    --text-soft: #4A4A4A;
-    --accent: #2B6E5A;
-    --accent-light: #E8F2ED;
-    --warm: #D4A574;
-    --warm-light: #FDF6F0;
-    --border: #E2E0DB;
-    --white: #FFFFFF;
-    --red-soft: #C0392B;
-    --red-bg: #FDF0EF;
+    --ink: #2a2520;
+    --ink-soft: #6b6258;
+    --paper: #fbf7f0;
+    --paper-card: #ffffff;
+    --accent: #b15538;
+    --accent-soft: #e8d5cc;
+    --accent-deep: #8a3d24;
+    --sage: #7a8b6f;
+    --sage-soft: #e4eadd;
+    --rule: #e8e0d2;
+    --note-bg: #f5ede0;
+    --warn-bg: #fdf4dc;
+    --warn-border: #d4a93a;
+    --highlight: #fff3cc;
   }
-
+  * { box-sizing: border-box; }
+  html { font-size: 17px; scroll-behavior: smooth; }
   body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
-    font-size: 16px;
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 0;
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-
-  /* Header */
-  .header {
-    background: var(--accent);
-    color: var(--white);
-    padding: 32px 24px 28px;
+  .wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  .draft-banner {
+    background: var(--warn-bg);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 6px;
+    padding: 0.95rem 1.1rem;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 2.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  .header-card {
+    background: var(--paper-card);
+    border-radius: 12px;
+    padding: 2.2rem 2rem 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(177, 85, 56, 0.06);
+    border: 1px solid var(--rule);
+  }
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    background: var(--accent-soft);
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: 2.15rem;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .lede {
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.6;
+  }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 2.8rem 0 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    color: var(--ink);
+  }
+  h2 .num {
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    background: var(--accent-soft);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  p { margin: 0 0 1rem; }
+  a.footnote {
+    font-size: 0.7em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-left: 0.15em;
+    text-decoration: none;
+    vertical-align: super;
+    line-height: 0;
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    transition: background 0.15s ease;
+  }
+  a.footnote:hover {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+  ul li {
+    padding: 0.4rem 0 0.4rem 1.5rem;
     position: relative;
   }
-
-  .header-label {
-    font-size: 11px;
+  ul li::before {
+    content: "";
+    position: absolute;
+    left: 0.4rem;
+    top: 0.95rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .note {
+    background: var(--sage-soft);
+    border-left: 3px solid var(--sage);
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-size: 0.96rem;
+    border-radius: 0 6px 6px 0;
+    color: var(--ink);
+  }
+  .anatomy {
+    margin: 1rem 0 1.5rem;
+    background: var(--paper-card);
+    padding: 1.3rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+  }
+  .anatomy dt {
+    font-weight: 600;
+    margin-top: 0.9rem;
+    color: var(--accent-deep);
+  }
+  .anatomy dt:first-child { margin-top: 0; }
+  .anatomy dd {
+    margin: 0.25rem 0 0;
+    color: var(--ink);
+  }
+  .safety {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-radius: 10px;
+    padding: 1.5rem 1.6rem;
+    margin: 2.8rem 0 1.5rem;
+  }
+  .safety h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .safety h2 .num { display: none; }
+  .safety h2::before {
+    content: "⚠";
+    color: var(--warn-border);
+    font-size: 1.3rem;
+  }
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--accent);
+    font-size: 0.9rem;
+  }
+  footer h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    opacity: 0.75;
-    margin-bottom: 12px;
+    color: var(--accent);
+    margin: 2rem 0 0.9rem;
     font-weight: 600;
   }
-
-  .header h1 {
-    font-family: 'Lora', serif;
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.3;
-    margin-bottom: 8px;
+  .meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    background: var(--paper-card);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
   }
-
-  .header p {
-    font-size: 14px;
-    opacity: 0.85;
-    line-height: 1.5;
+  .meta-table td {
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
   }
-
-  /* Content */
-  .content {
-    padding: 0 24px;
+  .meta-table tr:last-child td { border-bottom: none; }
+  .meta-table td:first-child {
+    width: 40%;
+    color: var(--ink-soft);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.85rem;
+    background: var(--paper);
   }
-
-  /* TLDR Box */
-  .tldr {
-    background: var(--accent-light);
-    border-left: 3px solid var(--accent);
-    padding: 20px;
-    margin: 24px 0;
-    border-radius: 0 8px 8px 0;
-  }
-
-  .tldr-title {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-
-  .tldr p {
-    font-size: 15px;
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  /* Sections */
-  .section {
-    margin: 32px 0;
-  }
-
-  .section h2 {
-    font-family: 'Lora', serif;
-    font-size: 20px;
-    font-weight: 500;
-    color: var(--text);
-    margin-bottom: 12px;
-  }
-
-  .section p {
-    font-size: 15px;
-    color: var(--text-soft);
-    margin-bottom: 12px;
-  }
-
-  .section p:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Myth Buster */
-  .myth-box {
-    background: var(--warm-light);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 16px 0;
-  }
-
-  .myth-label {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--red-soft);
-    margin-bottom: 6px;
-  }
-
-  .myth-text {
-    font-family: 'Lora', serif;
-    font-size: 17px;
-    font-style: italic;
-    color: var(--text);
-    margin-bottom: 10px;
-    text-decoration: line-through;
-    text-decoration-color: var(--red-soft);
-    text-decoration-thickness: 1.5px;
-  }
-
-  .fact-label {
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-
-  .fact-text {
-    font-size: 15px;
-    color: var(--text-soft);
-    line-height: 1.6;
-  }
-
-  /* Good news box */
-  .good-news {
-    background: var(--accent-light);
-    border-radius: 10px;
-    padding: 20px;
-    margin: 16px 0;
-    text-align: center;
-  }
-
-  .good-news .emoji {
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
-
-  .good-news p {
-    font-size: 15px;
-    color: var(--accent);
-    font-weight: 600;
-    line-height: 1.5;
-  }
-
-  /* Do / Don't */
-  .do-dont {
+  .source {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin: 16px 0;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding: 1.2rem 1.1rem;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    background: var(--paper-card);
+    align-items: start;
+    transition: background 0.4s ease, border-color 0.4s ease;
+    scroll-margin-top: 1rem;
   }
-
-  .do-card, .dont-card {
-    border-radius: 10px;
-    padding: 16px;
+  .source:target {
+    background: var(--highlight);
+    border-color: var(--warn-border);
   }
-
-  .do-card {
-    background: var(--accent-light);
-  }
-
-  .dont-card {
-    background: var(--red-bg);
-  }
-
-  .do-card .card-icon,
-  .dont-card .card-icon {
-    font-size: 20px;
-    margin-bottom: 8px;
-  }
-
-  .card-title {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-  }
-
-  .do-card .card-title { color: var(--accent); }
-  .dont-card .card-title { color: var(--red-soft); }
-
-  .card-list {
-    list-style: none;
-    font-size: 13.5px;
-    color: var(--text-soft);
-    line-height: 1.7;
-  }
-
-  .card-list li::before {
-    margin-right: 6px;
-  }
-
-  .do-card .card-list li::before { content: "✓ "; color: var(--accent); font-weight: 700; }
-  .dont-card .card-list li::before { content: "✗ "; color: var(--red-soft); font-weight: 700; }
-
-  /* Timeline */
-  .timeline {
-    margin: 16px 0;
-  }
-
-  .timeline-item {
-    display: flex;
-    gap: 16px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .timeline-item:last-child {
-    border-bottom: none;
-  }
-
-  .timeline-week {
-    font-size: 12px;
-    font-weight: 700;
+  .source-num {
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    font-size: 1.5rem;
     color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    min-width: 70px;
-    padding-top: 2px;
-  }
-
-  .timeline-desc {
-    font-size: 14px;
-    color: var(--text-soft);
-    line-height: 1.55;
-  }
-
-  /* Warning box */
-  .warning {
-    background: var(--red-bg);
-    border-left: 3px solid var(--red-soft);
-    border-radius: 0 8px 8px 0;
-    padding: 20px;
-    margin: 24px 0;
-  }
-
-  .warning-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--red-soft);
-    margin-bottom: 8px;
-  }
-
-  .warning p {
-    font-size: 14px;
-    color: var(--text-soft);
-    line-height: 1.6;
-  }
-
-  .warning ul {
-    list-style: none;
-    margin: 8px 0;
-    font-size: 14px;
-    color: var(--text-soft);
-  }
-
-  .warning ul li {
-    padding: 3px 0;
-  }
-
-  .warning ul li::before {
-    content: "→ ";
-    color: var(--red-soft);
     font-weight: 600;
-  }
-
-  /* Divider */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 32px 0;
-  }
-
-  /* Footer */
-  .footer {
-    padding: 24px;
     text-align: center;
-    border-top: 1px solid var(--border);
-    margin-top: 32px;
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 0.3rem 0;
+    line-height: 1.2;
   }
-
-  .footer p {
-    font-size: 12px;
-    color: var(--text-soft);
-    opacity: 0.6;
-    line-height: 1.6;
-  }
-
-  .footer .source-label {
-    font-size: 11px;
-    font-weight: 600;
+  .source-type {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-soft);
-    opacity: 0.5;
-    margin-bottom: 8px;
-  }
-
-  .footer a {
     color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .source-body { font-size: 0.88rem; line-height: 1.55; }
+  .source-body a { color: var(--accent); word-break: break-all; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .source-body a:hover { color: var(--accent-deep); }
+  .back-to-top {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
     text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   }
-
-  /* Smooth appearance */
-  @media (prefers-reduced-motion: no-preference) {
-    .section, .tldr, .myth-box, .good-news, .do-dont, .warning {
-      animation: fadeUp 0.4s ease-out both;
-    }
+  .back-to-top:hover { color: var(--accent); }
+  .disclaimer {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    padding: 1.2rem 1.3rem;
+    margin-bottom: 1.5rem;
+    background: var(--paper-card);
+    border-radius: 8px;
+    border: 1px solid var(--rule);
   }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+  @media (max-width: 480px) {
+    html { font-size: 16px; }
+    h1 { font-size: 1.75rem; }
+    .wrap { padding: 1.5rem 1.1rem 3rem; }
+    .header-card { padding: 1.6rem 1.3rem; }
   }
 </style>
 </head>
 <body>
+<div class="wrap" id="top">
 
-<div class="header">
-  <div class="header-label">Patienteninformation</div>
-  <h1>Schulterschmerzen?<br>Kein Grund zur Panik.</h1>
-  <p>Was „Schulter-Impingement" wirklich bedeutet – und warum Ihre Schulter besser ist, als Sie gerade denken.</p>
-</div>
-
-<div class="content">
-
-  <div class="tldr">
-    <div class="tldr-title">Das Wichtigste zuerst</div>
-    <p>Ihre Schulter ist nicht kaputt. „Impingement" beschreibt eine Reizung – keine strukturelle Zerstörung. Die große Mehrheit der Betroffenen wird mit gezielter Bewegung deutlich besser. Ohne OP.</p>
+  <div class="draft-banner">
+    <strong>Entwurf, noch nicht fachlich geprüft.</strong> Diese Seite ist eine Vorabversion. Vor Freigabe oder Druck prüft eine fachlich qualifizierte Person den Inhalt. Name und Prüfdatum erscheinen dann unten.
   </div>
 
-  <div class="section">
-    <h2>Was passiert da eigentlich?</h2>
-    <p>Unter dem Schulterdach verlaufen Sehnen und ein kleiner Schleimbeutel. Bei bestimmten Bewegungen – besonders über Kopf – kann es dort eng werden. Das führt zu Reizungen und Schmerzen.</p>
-    <p>Häufig betroffen: Menschen, die viel am Schreibtisch sitzen. Nicht weil Sitzen „schlecht" ist, sondern weil die Schultermuskulatur zu wenig gefordert wird und dann bei ungewohnter Belastung überreagiert.</p>
+  <div class="header-card">
+    <div class="eyebrow">Patienteninformation</div>
+    <h1>Schulterschmerz unter dem Schulterdach</h1>
+    <p class="lede">Was die Schulter an dieser Stelle ausmacht und was die Forschung über die Beschwerden sagt. Fachlich heißt das Beschwerdebild „subakromiales Schmerzsyndrom".</p>
   </div>
 
-  <div class="myth-box">
-    <div class="myth-label">Mythos</div>
-    <div class="myth-text">„Da reibt Knochen auf Knochen – das wird nur schlimmer."</div>
-    <div class="fact-label">Realität</div>
-    <div class="fact-text">Aktuelle Forschung zeigt: Der Begriff „Impingement" ist veraltet und irreführend. Es ist kein mechanisches Einklemmen, sondern eine Empfindlichkeit der Sehne, die sich mit Training wieder normalisiert. Schmerz ≠ Schaden.</div>
-  </div>
+  <h2><span class="num">01</span> Was bedeutet dieser Begriff?</h2>
+  <p>„Subakromial" heißt „unter dem Schulterdach". Gemeint sind Schmerzen in genau diesem Bereich der Schulter.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Für diese Beschwerden gibt es mehrere Namen. Fachleute sprechen heute meist vom „subakromialen Schmerzsyndrom". Der ältere Begriff „Impingement" (Einklemmung) wird uneinheitlich verwendet und fasst sehr verschiedene Ursachen zusammen. Er beschreibt die Beschwerden allein nicht ausreichend.<a href="#quelle-1" class="footnote">1</a></p>
+  <div class="note">Der Name beschreibt eine Region mit Beschwerden, keine festgestellte Schädigung. Welche Ursache bei Ihnen vorliegt, klärt Ihre Praxis individuell.</div>
 
-  <div class="section">
-    <h2>Warum Schonung das Falsche ist</h2>
-    <p>Ihr erster Instinkt ist wahrscheinlich: Arm ruhig halten, bloß nichts machen, was weh tut. Das ist verständlich – aber kontraproduktiv.</p>
-    <p>Sehnen brauchen Belastung, um sich zu regenerieren. Wer die Schulter schont, schwächt genau die Muskulatur, die sie stabilisiert. Der Schmerz bleibt – oder wird schlimmer.</p>
-    <p>Das heißt nicht: durch den Schmerz durcharbeiten. Es heißt: kontrollierte, dosierte Bewegung. Genau das macht Ihre Physiotherapie.</p>
-  </div>
+  <h2><span class="num">02</span> Was liegt unter dem Schulterdach?</h2>
+  <p>Der schmerzhafte Bereich liegt in einem engen Raum zwischen dem knöchernen Schulterdach oben und dem Oberarmkopf unten. In diesem Raum verlaufen mehrere Strukturen.<a href="#quelle-1" class="footnote">1</a></p>
+  <dl class="anatomy">
+    <dt>Acromion (Schulterdach)</dt>
+    <dd>ein Knochenfortsatz des Schulterblattes, der über dem Gelenk liegt und das Dach bildet.<a href="#quelle-1" class="footnote">1</a></dd>
+    <dt>Rotatorenmanschette</dt>
+    <dd>eine Gruppe von Sehnen, die zwischen Schulterdach und Oberarmkopf verläuft. Die obere Sehne wird Supraspinatussehne genannt.<a href="#quelle-1" class="footnote">1</a></dd>
+    <dt>Schleimbeutel (Bursa)</dt>
+    <dd>ein Gleitlager zwischen Sehne und Schulterdach.<a href="#quelle-1" class="footnote">1</a></dd>
+  </dl>
+  <p>Schmerzen entstehen, wenn diese Strukturen gereizt oder belastet sind. Wo genau die Ursache liegt, lässt sich von außen nicht sicher sagen.<a href="#quelle-1" class="footnote">1</a></p>
 
-  <div class="good-news">
-    <div class="emoji">📊</div>
-    <p>Über 80 % der Schulter-Impingement-Beschwerden bessern sich mit konservativer Therapie – also ohne Operation.</p>
-  </div>
+  <h2><span class="num">03</span> Wie sich die Beschwerden zeigen</h2>
+  <p>Typisch ist ein Schmerz beim Heben des Armes zur Seite und nach vorne, besonders im mittleren Bereich der Bewegung. Auch Überkopfarbeit verstärkt die Beschwerden oft.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Der Beginn ist meist schleichend, ohne einen bestimmten Auslöser. Die Schmerzen treten vor allem bei Belastung auf, können aber auch in Ruhe und nachts spürbar sein.<a href="#quelle-1" class="footnote">1</a></p>
 
-  <div class="section">
-    <h2>Was hilft – was nicht</h2>
-  </div>
+  <h2><span class="num">04</span> Was Bilder zeigen, und was nicht</h2>
+  <p>Veränderungen an den Sehnen gehören zum normalen Älterwerden und finden sich häufig auch bei Menschen ohne Schmerzen. In einer Auswertung mehrerer Studien stieg ihr Anteil mit dem Alter, und zwar ähnlich, ob Beschwerden vorlagen oder nicht.<a href="#quelle-3" class="footnote">3</a></p>
+  <p>Ein Befund auf einem Bild beweist deshalb für sich genommen noch nicht, dass er die Ursache des Schmerzes ist.<a href="#quelle-3" class="footnote">3</a> Die deutsche Leitlinie empfiehlt zur Diagnose neben der körperlichen Untersuchung eine Bildgebung mittels Röntgen in zwei Ebenen und/oder MRT. Eine Ultraschalluntersuchung dient dabei vor allem dazu, Begleitbefunde zu erkennen, und wird nicht zur eigentlichen Diagnose empfohlen.<a href="#quelle-1" class="footnote">1</a></p>
 
-  <div class="do-dont">
-    <div class="do-card">
-      <div class="card-icon">✅</div>
-      <div class="card-title">Hilft</div>
-      <ul class="card-list">
-        <li>Übungen vom Therapeuten</li>
-        <li>Schulter bewegen</li>
-        <li>Geduld (6–12 Wochen)</li>
-        <li>Alltag normal weiterführen</li>
-      </ul>
-    </div>
-    <div class="dont-card">
-      <div class="card-icon">❌</div>
-      <div class="card-title">Hilft nicht</div>
-      <ul class="card-list">
-        <li>Arm komplett ruhigstellen</li>
-        <li>Googeln bis zur Panik</li>
-        <li>Ständig MRT fordern</li>
-        <li>Auf OP hoffen</li>
-      </ul>
-    </div>
-  </div>
+  <h2><span class="num">05</span> Was in Studien hilft</h2>
+  <p>Aktive Bewegung und gezieltes Kräftigen gelten als Behandlung der ersten Wahl. Die deutsche Leitlinie gibt mit ihrer stärksten Empfehlungsstufe an, beim subakromialen Schmerzsyndrom zunächst der Physiotherapie den Vorzug zu geben.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Manuelle Therapie und Trainingstherapie werden, allein oder mit einem Eigenübungsprogramm, ebenfalls empfohlen.<a href="#quelle-1" class="footnote">1</a> Für Ultraschall als Anwendung fand sich dagegen kein ausreichender Nutzen.<a href="#quelle-1" class="footnote">1</a></p>
+  <div class="note">Wirksamkeit zeigt sich in Studien als Durchschnitt über viele Menschen. Wie eine einzelne Person reagiert, lässt sich daraus nicht vorhersagen. Übungen, Dosierung und Tempo stimmt Ihre Praxis auf Sie ab.</div>
 
-  <div class="section">
-    <h2>Was Sie realistisch erwarten können</h2>
-  </div>
+  <h2><span class="num">06</span> Was Studien zur Operation zeigen</h2>
+  <p>Die häufigste Operation in diesem Bereich ist die subakromiale Dekompression. Dabei wird unter dem Schulterdach Platz geschaffen.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Die Studienlage dazu ist uneinheitlich. In einzelnen Studien war die Operation der Physiotherapie ebenbürtig, in einzelnen anderen schnitt sie besser ab.<a href="#quelle-1" class="footnote">1</a> Wird die echte Operation mit einer Scheinoperation verglichen, zeigt sich im Durchschnitt kein bedeutsamer Vorteil der eigentlichen Operation.<a href="#quelle-1" class="footnote">1</a><a href="#quelle-2" class="footnote">2</a> Auch nach der Scheinoperation bessern sich Schmerz und Funktion im Schnitt ähnlich stark wie nach der echten Operation.<a href="#quelle-2" class="footnote">2</a></p>
+  <p>Die deutsche Leitlinie empfiehlt deshalb, zunächst die Physiotherapie auszuschöpfen. Bringt sie nicht den gewünschten Erfolg, kann eine Operation als Möglichkeit besprochen werden.<a href="#quelle-1" class="footnote">1</a></p>
+  <div class="note">Diese Seite trifft keine Entscheidung für oder gegen eine Operation. Solche Fragen besprechen Sie mit Ihrer Ärztin oder Ihrem Arzt und Ihrer Praxis.</div>
 
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-week">Woche 1–2</div>
-      <div class="timeline-desc">Schmerzlinderung, erste leichte Übungen. Es darf noch ziehen – das ist normal und kein Zeichen von Verschlechterung.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">Woche 3–6</div>
-      <div class="timeline-desc">Beweglichkeit verbessert sich spürbar. Alltagsbewegungen werden leichter. Übungen werden anspruchsvoller.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">Woche 6–12</div>
-      <div class="timeline-desc">Kraft baut sich auf. Die meisten Patienten sind hier deutlich besser oder beschwerdefrei.</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">Danach</div>
-      <div class="timeline-desc">Eigenständig weitertrainieren. 2–3 Übungen, 10 Minuten, 3x pro Woche reichen oft aus, um beschwerdefrei zu bleiben.</div>
-    </div>
-  </div>
+  <h2><span class="num">07</span> Was das für Bewegung heißt</h2>
+  <p>Bei akuten Beschwerden empfiehlt die Leitlinie, die Belastung anzupassen und höchstens kurz zu entlasten.<a href="#quelle-1" class="footnote">1</a> Aktive, dosierte Bewegung in Form von Übungstherapie ist als Behandlung der ersten Wahl belegt.<a href="#quelle-1" class="footnote">1</a> Was für Sie eine passende Belastung ist, legt Ihre Praxis gemeinsam mit Ihnen fest.</p>
 
-  <div class="section">
-    <h2>Ihre Rolle ist entscheidend</h2>
-    <p>Physiotherapie wirkt nicht wie eine Tablette. Die Sitzung in der Praxis ist wichtig – aber was Sie zwischen den Terminen tun, entscheidet über das Ergebnis.</p>
-    <p>Machen Sie Ihre Übungen. Nicht perfekt, nicht schmerzfrei, aber regelmäßig. Drei Übungen, dreimal pro Woche – mehr braucht es oft nicht. Wenn Sie unsicher sind, fragen Sie Ihren Therapeuten. Dafür sind wir da.</p>
-  </div>
-
-  <div class="myth-box">
-    <div class="myth-label">Mythos</div>
-    <div class="myth-text">„Mein MRT zeigt einen Befund – also brauche ich eine OP."</div>
-    <div class="fact-label">Realität</div>
-    <div class="fact-text">MRT-Befunde an der Schulter sind bei Menschen über 40 völlig normal – auch ohne Beschwerden. Eine Studie zeigt: Über 50 % der schmerzfreien Personen über 40 haben „auffällige" Schulter-MRTs. Ein Befund auf dem Bild bedeutet nicht, dass er Ihre Schmerzen verursacht.</div>
-  </div>
-
-  <div class="warning">
-    <div class="warning-title">Wann Sie nochmal zum Arzt sollten</div>
-    <p>In seltenen Fällen steckt mehr dahinter. Gehen Sie zeitnah zum Arzt, wenn:</p>
+  <div class="safety">
+    <h2>Wann Sie sich melden sollten</h2>
+    <p style="font-size: 0.95rem; margin-bottom: 0.8rem;">Allgemeine Sicherheitshinweise. In diesen Fällen ist eine erneute Rücksprache mit Ihrer Praxis oder eine ärztliche Abklärung sinnvoll:</p>
     <ul>
-      <li>Die Schmerzen nach einem Unfall/Sturz auftraten</li>
-      <li>Sie nachts nicht schlafen können vor Schmerz</li>
-      <li>Ihre Schulter plötzlich kraftlos wird</li>
-      <li>Sie Fieber oder Schwellungen bemerken</li>
-      <li>Die Beschwerden sich trotz Therapie über 12 Wochen nicht bessern</li>
+      <li>Deutliche Kraftlosigkeit im Arm, besonders nach einem Sturz oder Unfall</li>
+      <li>Starke, anhaltende Schmerzen in der Nacht, die nicht mit Bewegung zusammenhängen</li>
+      <li>Fieber, Rötung oder Überwärmung der Schulter</li>
+      <li>Taubheit, Kribbeln oder Schwäche, die in den Arm ausstrahlen</li>
+      <li>Beschwerden, die sich trotz Behandlung deutlich verschlechtern oder über längere Zeit nicht bessern</li>
     </ul>
+    <p style="font-size: 0.95rem; margin-top: 0.8rem; margin-bottom: 0;">Im Zweifel gilt: lieber einmal mehr nachfragen.</p>
   </div>
 
-  <div class="divider"></div>
+  <footer>
+    <h3>Prüfung und Transparenz</h3>
+    <table class="meta-table">
+      <tr><td>Prüfstatus</td><td>Entwurf, noch nicht fachlich geprüft</td></tr>
+      <tr><td>Erstellt am</td><td>14.06.2026</td></tr>
+      <tr><td>Erstellt von</td><td>Philip Zebrowski</td></tr>
+      <tr><td>Geprüft von</td><td></td></tr>
+      <tr><td>Geprüft am</td><td>—</td></tr>
+      <tr><td>Nächste Prüfung</td><td>spätestens 12 Monate nach Freigabe, zudem vor Ablauf der Leitlinie (20.11.2026)</td></tr>
+      <tr><td>Änderungsverlauf</td><td>14.06.2026 Erstentwurf erstellt<br>14.06.2026 Quellenprüfung; anatomische Aussagen und Cochrane-Interpretation enger an Originalquellen formuliert</td></tr>
+    </table>
 
-  <div class="section" style="text-align: center; opacity: 0.8;">
-    <p style="font-size: 15px; color: var(--accent); font-weight: 600;">Ihre Schulter kann das.<br>Geben Sie ihr die Chance.</p>
-  </div>
+    <p style="font-size: 0.9rem;">Leitliniengrundlage. Diese Seite stützt sich vorrangig auf die aktuell gültige deutsche S2e Leitlinie „Subacromiales Impingement" (AWMF-Register 033-056, gültig bis 20.11.2026), an der unter anderem Physio-Deutschland mitgewirkt hat. Vor Ablauf wird der Inhalt gegen die dann aktuelle Fassung geprüft.</p>
+
+    <div class="disclaimer">Diese Seite dient der allgemeinen Information und ersetzt keine individuelle Untersuchung, Diagnose oder Beratung. Sie nennt keine Diagnose. Bei akuten oder anhaltenden Beschwerden wenden Sie sich an Ihre Praxis oder Ihre Ärztin oder Ihren Arzt.</div>
+
+    <h3>Quellenverzeichnis</h3>
+    <p style="font-size: 0.88rem; color: var(--ink-soft);">Jede inhaltliche Aussage oben ist mit der entsprechenden Nummer belegt. Tippen Sie auf eine Nummer im Text, um direkt zur Quelle zu springen. Reihenfolge nach Evidenzstufe.</p>
+
+    <div class="source" id="quelle-1">
+      <div class="source-num">1</div>
+      <div>
+        <div class="source-type">Leitlinie (S2e), Leitquelle</div>
+        <div class="source-body">Deutsche Vereinigung für Schulter- und Ellenbogenchirurgie e.V. (DVSE), Deutsche Gesellschaft für Orthopädie und Unfallchirurgie e.V. (DGOU). Subacromiales Impingement. S2e Leitlinie, AWMF-Register-Nr. 033-056. Version 1.0, 2021 (gültig bis 20.11.2026). <a href="https://register.awmf.org/de/leitlinien/detail/033-056" target="_blank" rel="noopener">register.awmf.org/.../033-056</a></div>
+        <a href="#top" class="back-to-top">↑ zurück nach oben</a>
+      </div>
+    </div>
+
+    <div class="source" id="quelle-2">
+      <div class="source-num">2</div>
+      <div>
+        <div class="source-type">Systematischer Review / Meta-Analyse (Cochrane)</div>
+        <div class="source-body">Karjalainen TV, Jain NB, Page CM, et al. Subacromial decompression surgery for rotator cuff disease. Cochrane Database Syst Rev. 2019;1(1):CD005619. <a href="https://doi.org/10.1002/14651858.CD005619.pub3" target="_blank" rel="noopener">doi.org/10.1002/14651858.CD005619.pub3</a></div>
+        <a href="#top" class="back-to-top">↑ zurück nach oben</a>
+      </div>
+    </div>
+
+    <div class="source" id="quelle-3">
+      <div class="source-num">3</div>
+      <div>
+        <div class="source-type">Systematischer Review / Gepoolte Analyse</div>
+        <div class="source-body">Teunis T, Lubberts B, Reilly BT, Ring D. A systematic review and pooled analysis of the prevalence of rotator cuff disease with increasing age. J Shoulder Elbow Surg. 2014;23(12):1913–1921. <a href="https://doi.org/10.1016/j.jse.2014.08.001" target="_blank" rel="noopener">doi.org/10.1016/j.jse.2014.08.001</a></div>
+        <a href="#top" class="back-to-top">↑ zurück nach oben</a>
+      </div>
+    </div>
+  </footer>
 
 </div>
-
-<div class="footer">
-  <div class="source-label">Hinweis</div>
-  <p>Diese Seite ersetzt keine ärztliche oder therapeutische Beratung. Die Inhalte basieren auf aktueller wissenschaftlicher Evidenz und dienen der allgemeinen Information. Bei Beschwerden wenden Sie sich an Ihren Physiotherapeuten oder Arzt.</p>
-  <p style="margin-top: 12px; opacity: 0.5;">Letzte Aktualisierung: Juni 2026</p>
-</div>
-
 </body>
 </html>
