@@ -404,5 +404,19 @@
   </footer>
 
 </div>
+<script>
+  (function () {
+    var WORKER_URL = "https://patho-cards-counter.philipzebrowski.workers.dev/count";
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("test") === "1") {
+      return;
+    }
+
+    fetch(WORKER_URL, { method: "POST" }).catch(function () {
+      // Fehler beim Zaehlen sollen die Seite niemals beeintraechtigen
+    });
+  })();
+</script>
 </body>
 </html>
