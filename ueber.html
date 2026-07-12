@@ -14,7 +14,6 @@
     --brand: #0f6e64;
     --brand-deep: #0a4d46;
     --rule: #dfd6c5;
-    --note-bg: #ebe3d1;
   }
   * { box-sizing: border-box; }
   html { font-size: 17px; scroll-behavior: smooth; }
@@ -27,52 +26,62 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Signature: Farbstreifen aus 12 Segmenten, je ein Ton pro geplanter Karte */
-  .spectrum {
-    display: flex;
-    height: 14px;
-    width: 100%;
-  }
+  .spectrum { display: flex; height: 14px; width: 100%; }
   .spectrum span { flex: 1; }
-  .spectrum span:nth-child(1)  { background: #1a5f96; } /* Kreuzschmerz  */
-  .spectrum span:nth-child(2)  { background: #0f6e64; } /* Schulter      */
-  .spectrum span:nth-child(3)  { background: #c25a3a; } /* Nacken        */
-  .spectrum span:nth-child(4)  { background: #6a7f2e; } /* Knie          */
-  .spectrum span:nth-child(5)  { background: #6b4a7a; } /* Hüfte         */
-  .spectrum span:nth-child(6)  { background: #a13d3d; } /* Ischialgie    */
-  .spectrum span:nth-child(7)  { background: #b58a2a; } /* Epikondylo    */
-  .spectrum span:nth-child(8)  { background: #8a4a2f; } /* Achilles      */
-  .spectrum span:nth-child(9)  { background: #558877; } /* Plantar       */
-  .spectrum span:nth-child(10) { background: #365d4a; } /* Patellofemoral*/
-  .spectrum span:nth-child(11) { background: #3f6b8a; } /* Frozen Sh.    */
-  .spectrum span:nth-child(12) { background: #9d7a4a; } /* Sprunggelenk  */
+  .spectrum span:nth-child(1)  { background: #1a5f96; }
+  .spectrum span:nth-child(2)  { background: #0f6e64; }
+  .spectrum span:nth-child(3)  { background: #c25a3a; }
+  .spectrum span:nth-child(4)  { background: #6a7f2e; }
+  .spectrum span:nth-child(5)  { background: #6b4a7a; }
+  .spectrum span:nth-child(6)  { background: #a13d3d; }
+  .spectrum span:nth-child(7)  { background: #b58a2a; }
+  .spectrum span:nth-child(8)  { background: #8a4a2f; }
+  .spectrum span:nth-child(9)  { background: #558877; }
+  .spectrum span:nth-child(10) { background: #365d4a; }
+  .spectrum span:nth-child(11) { background: #3f6b8a; }
+  .spectrum span:nth-child(12) { background: #9d7a4a; }
+
+  /* Sticky Zurueck-Button */
+  .sticky-back {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+  .sticky-back a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    background: var(--brand);
+    border-radius: 999px;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(15,110,100,0.35), 0 1px 4px rgba(0,0,0,0.12);
+    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    white-space: nowrap;
+  }
+  .sticky-back a:hover {
+    background: var(--brand-deep);
+    box-shadow: 0 6px 20px rgba(15,110,100,0.45);
+    transform: translateY(-2px);
+  }
+  .sticky-back .arr { font-size: 1.1rem; line-height: 1; }
+  @media (max-width: 560px) {
+    .sticky-back { bottom: 1rem; left: 1rem; right: 1rem; transform: none; }
+    .sticky-back a { justify-content: center; width: 100%; }
+  }
 
   .wrap {
     max-width: 700px;
     margin: 0 auto;
-    padding: 2.5rem 1.5rem 4rem;
+    padding: 2.5rem 1.5rem 6rem;
   }
-
-  /* Zurück-Button, nur sichtbar wenn ?von=… vorhanden */
-  .back-nav {
-    display: none;
-    margin-bottom: 2rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    font-size: 0.92rem;
-  }
-  .back-nav a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--brand);
-    text-decoration: none;
-    padding: 0.55rem 0.9rem;
-    background: var(--paper-card);
-    border: 1px solid var(--rule);
-    border-radius: 6px;
-  }
-  .back-nav a:hover { background: #fff; color: var(--brand-deep); }
-  .back-nav .arrow { font-size: 1.1rem; line-height: 1; }
 
   .wordmark {
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -106,7 +115,6 @@
   }
   p { margin: 0 0 1rem; }
 
-  /* Persönlicher Block: Bild + Text nebeneinander, mobil untereinander */
   .personal {
     display: grid;
     grid-template-columns: 130px 1fr;
@@ -133,11 +141,12 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     border: 1px solid var(--rule);
-    /* Platzhalter, spaeter ersetzen durch: background: url('portrait.jpg') center/cover; */
+    overflow: hidden;
+    flex-shrink: 0;
   }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
   .personal-text p:last-child { margin-bottom: 0; }
   .personal-text .signature {
-    font-family: "Iowan Old Style", "Charter", Georgia, serif;
     font-style: italic;
     color: var(--ink-soft);
     font-size: 0.95rem;
@@ -152,19 +161,12 @@
     padding: 1.6rem 1.6rem 0.6rem;
     margin: 1.2rem 0 1.5rem;
   }
-  .standards dt {
-    font-weight: 600;
-    color: var(--brand-deep);
-    margin-bottom: 0.2rem;
-  }
-  .standards dd {
-    margin: 0 0 1.2rem;
-    color: var(--ink);
-  }
+  .standards dt { font-weight: 600; color: var(--brand-deep); margin-bottom: 0.2rem; }
+  .standards dd { margin: 0 0 1.2rem; }
   .standards dd:last-child { margin-bottom: 0.8rem; }
 
   .contact { font-size: 0.95rem; }
-  .contact a { color: var(--brand); text-decoration: underline; text-underline-offset: 2px; }
+  .contact a { color: var(--brand); text-underline-offset: 2px; }
 
   footer {
     margin-top: 3.5rem;
@@ -199,38 +201,29 @@
   @media (max-width: 560px) {
     html { font-size: 16px; }
     h1 { font-size: 1.9rem; }
-    .wrap { padding: 1.5rem 1.1rem 3rem; }
-    .personal {
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
-      text-align: left;
-    }
-    .portrait {
-      width: 110px;
-      height: 110px;
-      margin: 0;
-    }
+    .wrap { padding: 1.5rem 1.1rem 6rem; }
+    .personal { grid-template-columns: 1fr; gap: 1.2rem; }
+    .portrait { width: 110px; height: 110px; }
   }
 </style>
 </head>
 <body>
 
-<!-- Farbstreifen: eine Signatur, zeigt visuell dass es viele Karten gibt -->
 <div class="spectrum" aria-hidden="true">
   <span></span><span></span><span></span><span></span>
   <span></span><span></span><span></span><span></span>
   <span></span><span></span><span></span><span></span>
 </div>
 
-<div class="wrap" id="top">
+<!-- Sticky Zurueck-Button, erscheint nur mit gueltigem ?von=... Parameter -->
+<div class="sticky-back" id="stickyBack" aria-live="polite">
+  <a href="#" id="stickyLink">
+    <span class="arr" aria-hidden="true">←</span>
+    <span id="stickyText">Zurück zu Ihrer Information</span>
+  </a>
+</div>
 
-  <!-- Zurueck-Button, wird nur sichtbar wenn ein gueltiger ?von=… Parameter vorhanden ist -->
-  <nav class="back-nav" id="backNav" aria-label="Zurück zur Informationsseite">
-    <a href="#" id="backLink">
-      <span class="arrow" aria-hidden="true">←</span>
-      <span id="backText">Zurück zu Ihrer Information</span>
-    </a>
-  </nav>
+<div class="wrap" id="top">
 
   <div class="wordmark">PATHO<span class="dot">·</span>CARDS</div>
 
@@ -243,7 +236,10 @@
 
   <h2>Warum ich das mache</h2>
   <div class="personal">
-    <div class="portrait" aria-label="Portrait Philip Zebrowski">Foto folgt</div>
+    <div class="portrait" aria-label="Portrait Philip Zebrowski">
+      <!-- Foto einbauen: <img src="portrait.jpg" alt="Philip Zebrowski"> -->
+      Foto folgt
+    </div>
     <div class="personal-text">
       <p>Ich studiere Physiotherapie und habe im Praktikum immer wieder erlebt, wie Menschen nach ihrer Diagnose im Internet suchen und dort selten das finden, was ihnen wirklich hilft. Werbung, Angstmacher, KI-Texte ohne Absender.</p>
       <p>Patho-Cards ist mein Versuch, das zu ändern. Jede Seite folgt festen Regeln, damit ich guten Gewissens sagen kann: Was hier steht, hält.</p>
@@ -256,16 +252,12 @@
   <dl class="standards">
     <dt>Benannter Reviewer</dt>
     <dd>Eine fachlich qualifizierte Person prüft den Inhalt. Ihr Name und das Prüfdatum stehen sichtbar auf jeder Seite.</dd>
-
     <dt>Belegte Aussagen</dt>
     <dd>Jede inhaltliche Aussage stützt sich auf eine benannte Quelle. Bevorzugt werden medizinische Leitlinien, danach systematische Übersichtsarbeiten, danach einzelne Studien.</dd>
-
     <dt>Regelmäßige Prüfung</dt>
     <dd>Jede Seite wird mindestens alle zwölf Monate gegen den aktuellen Stand der Leitlinien geprüft. Ein Änderungsverlauf hält fest, wann was geprüft wurde.</dd>
-
     <dt>Kein Heilversprechen</dt>
     <dd>Die Seiten berichten über die Studienlage, nicht über den einzelnen Menschen. Sie versprechen keine Heilung und geben keine persönlichen Behandlungspläne.</dd>
-
     <dt>Keine Diagnose</dt>
     <dd>Die Seiten stellen keine Diagnose. Sie nennen Warnzeichen, bei denen Sie sich an Ihre Praxis oder Ärztin oder Ihren Arzt wenden sollten.</dd>
   </dl>
@@ -285,25 +277,27 @@
 
 <script>
   /*
-   * Zurueck-Button-Logik.
-   * Liest den URL-Parameter ?von=… clientseitig aus.
-   * Whitelist der erlaubten Pathologien schuetzt gegen manipulierte Links.
-   * Keine Speicherung, kein Tracking, keine Cookies. DSGVO-konform.
+   * Sticky Zurueck-Button.
+   * Liest ?von=... clientseitig. Whitelist schuetzt gegen manipulierte Links.
+   * Keine Cookies, keine Speicherung, DSGVO-konform.
+   *
+   * Fuer jede neue Pathologie hier einen Eintrag ergaenzen:
+   *   "dateiname-ohne-html": { label: "...", datei: "dateiname.html" }
    */
   (function () {
     var pathologien = {
-      "ruecken":      { label: "Ihrer Information zum Rücken",          datei: "ruecken.html"      },
-      "schulter":     { label: "Ihrer Information zur Schulter",        datei: "schulter.html"     },
-      "nacken":       { label: "Ihrer Information zum Nacken",          datei: "nacken.html"       },
-      "knie":         { label: "Ihrer Information zum Knie",            datei: "knie.html"         },
-      "huefte":       { label: "Ihrer Information zur Hüfte",           datei: "huefte.html"       },
-      "ischias":      { label: "Ihrer Information zur Ischialgie",      datei: "ischias.html"      },
-      "ellbogen":     { label: "Ihrer Information zum Ellbogen",        datei: "ellbogen.html"     },
-      "achilles":     { label: "Ihrer Information zur Achillessehne",   datei: "achilles.html"     },
-      "plantar":      { label: "Ihrer Information zur Fußsohle",        datei: "plantar.html"      },
-      "patella":      { label: "Ihrer Information zur Kniescheibe",     datei: "patella.html"      },
-      "frozen":       { label: "Ihrer Information zur Frozen Shoulder", datei: "frozen.html"       },
-      "sprunggelenk": { label: "Ihrer Information zum Sprunggelenk",    datei: "sprunggelenk.html" }
+      "schulter":     { label: "zur Schulterseite",        datei: "index.html"        },
+      "ruecken":      { label: "zur Rückenseite",          datei: "ruecken.html"      },
+      "nacken":       { label: "zur Nackenseite",          datei: "nacken.html"       },
+      "knie":         { label: "zur Knieseite",            datei: "knie.html"         },
+      "huefte":       { label: "zur Hüftseite",            datei: "huefte.html"       },
+      "ischias":      { label: "zur Ischiasseite",         datei: "ischias.html"      },
+      "ellbogen":     { label: "zur Ellbogenseite",        datei: "ellbogen.html"     },
+      "achilles":     { label: "zur Achillesseite",        datei: "achilles.html"     },
+      "plantar":      { label: "zur Fußsohlenseite",       datei: "plantar.html"      },
+      "patella":      { label: "zur Kniescheibenseite",    datei: "patella.html"      },
+      "frozen":       { label: "zur Frozen-Shoulder-Seite", datei: "frozen.html"     },
+      "sprunggelenk": { label: "zur Sprunggelenkseite",    datei: "sprunggelenk.html" }
     };
 
     try {
@@ -311,16 +305,14 @@
       var von = params.get("von");
       if (von && Object.prototype.hasOwnProperty.call(pathologien, von)) {
         var eintrag = pathologien[von];
-        var nav  = document.getElementById("backNav");
-        var link = document.getElementById("backLink");
-        var text = document.getElementById("backText");
+        var btn  = document.getElementById("stickyBack");
+        var link = document.getElementById("stickyLink");
+        var text = document.getElementById("stickyText");
         link.setAttribute("href", eintrag.datei);
-        text.textContent = "Zurück zu " + eintrag.label;
-        nav.style.display = "block";
+        text.textContent = "Zurück " + eintrag.label;
+        btn.style.display = "block";
       }
-    } catch (e) {
-      /* Bei Fehlern still bleiben, Homepage funktioniert ohne Zurueck-Button weiter. */
-    }
+    } catch (e) { /* still bleiben */ }
   })();
 </script>
 
