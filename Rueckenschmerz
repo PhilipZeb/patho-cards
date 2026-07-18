@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Schmerzen im unteren Rücken (nicht-spezifischer Kreuzschmerz)</title>
+<style>
+  :root {
+    --ink: #1c2830;
+    --ink-soft: #5f6b76;
+    --paper: #f7f8fa;
+    --paper-card: #ffffff;
+    --accent: #1a5f96;
+    --accent-soft: #d3e4f2;
+    --accent-deep: #0f466f;
+    --sage: #3c7fb3;
+    --sage-soft: #e3eef7;
+    --rule: #e3e7eb;
+    --note-bg: #e3eef7;
+    --warn-bg: #f6ddd1;
+    --warn-border: #c25a3a;
+    --highlight: #dbe7f2;
+  }
+  * { box-sizing: border-box; }
+  html { font-size: 17px; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+  .draft-banner {
+    background: var(--warn-bg);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 6px;
+    padding: 0.95rem 1.1rem;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 2.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  .header-card {
+    background: var(--accent);
+    border-radius: 12px;
+    padding: 2.2rem 2rem 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 1px 3px rgba(28,40,48,0.06), 0 14px 36px rgba(26, 95, 150, 0.18);
+    border: 1px solid var(--accent-deep);
+  }
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ecf4fa;
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+  }
+  h1 {
+    font-size: 2.15rem;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #f5f9fc;
+  }
+  .lede {
+    font-size: 1.08rem;
+    color: #f5f9fc;
+    margin: 0;
+    line-height: 1.6;
+  }
+  h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 2.8rem 0 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    color: var(--ink);
+  }
+  h2 .num {
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    background: var(--accent-soft);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  p { margin: 0 0 1rem; }
+  a.footnote {
+    font-size: 0.7em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-left: 0.15em;
+    text-decoration: none;
+    vertical-align: super;
+    line-height: 0;
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+    transition: background 0.15s ease;
+  }
+  a.footnote:hover {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
+  ul li {
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+  }
+  ul li::before {
+    content: "";
+    position: absolute;
+    left: 0.4rem;
+    top: 0.95rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .note {
+    background: var(--sage-soft);
+    border-left: 3px solid var(--sage);
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0;
+    font-size: 0.96rem;
+    border-radius: 0 6px 6px 0;
+    color: var(--ink);
+  }
+  .anatomy {
+    margin: 1rem 0 1.5rem;
+    background: var(--paper-card);
+    padding: 1.3rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+  }
+  .anatomy dt {
+    font-weight: 600;
+    margin-top: 0.9rem;
+    color: var(--accent-deep);
+  }
+  .anatomy dt:first-child { margin-top: 0; }
+  .anatomy dd {
+    margin: 0.25rem 0 0;
+    color: var(--ink);
+  }
+  .safety {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-radius: 10px;
+    padding: 1.5rem 1.6rem;
+    margin: 2.8rem 0 1.5rem;
+  }
+  .safety h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .safety h2 .num { display: none; }
+  .safety h2::before {
+    content: "⚠";
+    color: var(--warn-border);
+    font-size: 1.3rem;
+  }
+  footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--accent);
+    font-size: 0.9rem;
+  }
+  footer h3 {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2rem 0 0.9rem;
+    font-weight: 600;
+  }
+  .meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    background: var(--paper-card);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+  .meta-table td {
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  .meta-table tr:last-child td { border-bottom: none; }
+  .meta-table td:first-child {
+    width: 40%;
+    color: var(--ink-soft);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.85rem;
+    background: var(--paper);
+  }
+  .source {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding: 1.2rem 1.1rem;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    background: var(--paper-card);
+    align-items: start;
+    transition: background 0.4s ease, border-color 0.4s ease;
+    scroll-margin-top: 1rem;
+  }
+  .source:target {
+    background: var(--highlight);
+    border-color: var(--warn-border);
+  }
+  .source-num {
+    font-family: "Iowan Old Style", "Charter", Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: center;
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 0.3rem 0;
+    line-height: 1.2;
+  }
+  .source-type {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .source-body { font-size: 0.88rem; line-height: 1.55; }
+  .source-body a { color: var(--accent); word-break: break-all; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .source-body a:hover { color: var(--accent-deep); }
+  .back-to-top {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  .back-to-top:hover { color: var(--accent); }
+  .disclaimer {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    padding: 1.2rem 1.3rem;
+    margin-bottom: 1.5rem;
+    background: var(--paper-card);
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+  }
+  @media (max-width: 480px) {
+    html { font-size: 16px; }
+    h1 { font-size: 1.75rem; }
+    .wrap { padding: 1.5rem 1.1rem 3rem; }
+    .header-card { padding: 1.6rem 1.3rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+
+  <div class="draft-banner"><strong>Entwurf, noch nicht fachlich geprüft.</strong> Diese Seite ist eine Vorabversion. Vor Freigabe oder Druck prüft eine fachlich qualifizierte Person den Inhalt. Name und Prüfdatum erscheinen dann unten.</div>
+
+  <div class="header-card">
+    <div class="eyebrow">Patienteninformation</div>
+    <h1>Schmerzen im unteren Rücken</h1>
+    <p class="lede">Was es mit diesen Beschwerden auf sich hat und was die Forschung über ihre Behandlung sagt. Fachlich heißt das Beschwerdebild „nicht-spezifischer Kreuzschmerz".</p>
+  </div>
+
+  <h2><span class="num">01</span> Was bedeutet dieser Begriff?</h2>
+  <p>Kreuzschmerzen sind Schmerzen unterhalb des Rippenbogens und oberhalb der Gesäßfalten, also im unteren Rücken. Sie können ausstrahlen, müssen aber nicht.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>„Nicht-spezifisch" bedeutet: Bei der Untersuchung finden sich keine eindeutigen Hinweise auf eine spezifische Ursache, die gezielt behandelt werden müsste.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Kreuzschmerzen gehören zu den häufigsten Beschwerden in der Bevölkerung. Bis zu 85 Prozent der Menschen bekommen sie mindestens einmal im Leben.<a href="#quelle-1" class="footnote">1</a> Weltweit sind Schmerzen im unteren Rücken der häufigste Grund für körperliche Einschränkungen im Alltag.<a href="#quelle-2" class="footnote">2</a></p>
+  <div class="note">„Nicht-spezifisch" sagt nichts darüber aus, wie stark oder echt die Schmerzen sind. Es bedeutet nur: Es wurde keine spezifische Ursache gefunden, die eine eigene Behandlung erfordert. Welcher Fall bei Ihnen vorliegt, klärt Ihre Praxis oder Ihre Ärztin oder Ihr Arzt.</div>
+
+  <h2><span class="num">02</span> Was diese Seite nicht behandelt</h2>
+  <p>Daneben gibt es spezifische Kreuzschmerzen. Sie haben eine feststellbare körperliche Ursache, deren gezielte Behandlung den Verlauf verbessern kann.<a href="#quelle-1" class="footnote">1</a> Dazu zählen unter anderem:</p>
+  <dl class="anatomy">
+    <dt>Bandscheibenvorfall</dt>
+    <dd>kann auf Nervenwurzeln drücken.<a href="#quelle-1" class="footnote">1</a></dd>
+    <dt>Spinalkanalstenose</dt>
+    <dd>eine Verengung des Wirbelkanals.<a href="#quelle-1" class="footnote">1</a></dd>
+    <dt>Entzündliche Erkrankungen</dt>
+    <dd>zum Beispiel entzündlich-rheumatische Erkrankungen der Wirbelsäule.<a href="#quelle-1" class="footnote">1</a></dd>
+    <dt>Osteoporose und Knochenbrüche</dt>
+    <dd>Brüche an der Wirbelsäule, bei geschwächtem Knochen auch nach kleineren Anlässen.<a href="#quelle-1" class="footnote">1</a></dd>
+    <dt>Infektionen und Tumore</dt>
+    <dd>seltene, aber ernste Ursachen, die rasch abgeklärt werden müssen.<a href="#quelle-1" class="footnote">1</a></dd>
+  </dl>
+  <p>Diese Ursachen werden anders behandelt und sind nicht Thema dieser Seite. Ob bei Ihnen ein spezifischer oder nicht-spezifischer Kreuzschmerz vorliegt, klärt Ihre Praxis oder Ihre Ärztin oder Ihr Arzt.</p>
+
+  <h2><span class="num">03</span> Wie die Beschwerden verlaufen</h2>
+  <p>Nach der Dauer werden drei Formen unterschieden: Akute Kreuzschmerzen bestehen weniger als sechs Wochen, subakute sechs bis zwölf Wochen, chronische länger als zwölf Wochen.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Der Verlauf ist in Studien meist günstig. Die stärkste Besserung zeigt sich innerhalb der ersten sechs Wochen.<a href="#quelle-1" class="footnote">1</a> Die Mehrheit der Betroffenen ist nach etwa vier Wochen wieder beschwerdefrei.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Ehrlich gesagt werden muss auch: Rückfälle sind häufig, und bei einem Teil der Betroffenen halten die Beschwerden länger an.<a href="#quelle-1" class="footnote">1</a> Auch dann gibt es gut untersuchte Behandlungsmöglichkeiten.</p>
+
+  <h2><span class="num">04</span> Was Bilder zeigen, und was nicht</h2>
+  <p>Ein Röntgenbild oder MRT gehört nicht automatisch zur Abklärung. Die deutsche Leitlinie empfiehlt mit ihrer stärksten Empfehlungsstufe: Bei akuten Kreuzschmerzen soll ohne Warnhinweise auf gefährliche Verläufe keine Bildgebung erfolgen.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Der Grund: In Studien machte es bei akuten und subakuten Kreuzschmerzen für Schmerzen und Alltagsfähigkeit keinen Unterschied, ob sofort ein Bild gemacht wurde oder nicht.<a href="#quelle-1" class="footnote">1</a> Auch fand sich kein Zusammenhang zwischen Verschleißzeichen im MRT und Kreuzschmerzen. Die Studienlage dazu ist allerdings begrenzt.<a href="#quelle-1" class="footnote">1</a> Bildgebung kann zudem unnötige Behandlungen nach sich ziehen.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Bildgebung ist damit nicht grundsätzlich falsch. Es kommt auf den Zeitpunkt an: Werden die Beschwerden trotz empfohlener Behandlung nach vier bis sechs Wochen nicht besser, soll laut Leitlinie geprüft werden, ob ein Bild nötig ist.<a href="#quelle-1" class="footnote">1</a></p>
+
+  <h2><span class="num">05</span> Was in Studien hilft</h2>
+  <p>In Bewegung bleiben ist die zentrale Empfehlung. Die deutsche Leitlinie empfiehlt mit ihrer stärksten Empfehlungsstufe, körperliche Aktivitäten so weit wie möglich beizubehalten.<a href="#quelle-1" class="footnote">1</a> Halten die Beschwerden länger an, soll Bewegungstherapie, kombiniert mit Aufklärung, die Behandlung der ersten Wahl sein.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Wie groß ist der Effekt? Eine Auswertung von 249 Studien mit über 24.000 Teilnehmenden gibt eine Antwort für chronische Kreuzschmerzen: Menschen mit Bewegungstherapie bewerteten ihre Schmerzen im Durchschnitt um 15 Punkte niedriger, auf einer Skala von 0 bis 100. Verglichen wurde mit Menschen, die keine Behandlung, die übliche Versorgung oder eine Scheinbehandlung erhielten.<a href="#quelle-3" class="footnote">3</a> Die Alltagsfähigkeit verbesserte sich im Durchschnitt um 7 Punkte, ein kleinerer Effekt.<a href="#quelle-3" class="footnote">3</a></p>
+  <p>Unerwünschte Wirkungen waren in den Studien meist gering, am häufigsten Muskelkater oder verstärkte Rückenschmerzen. Ähnliche Beschwerden traten auch in den Vergleichsgruppen auf.<a href="#quelle-3" class="footnote">3</a></p>
+  <p>Auch die Weltgesundheitsorganisation nennt für chronische Kreuzschmerzen strukturierte Bewegungsprogramme und strukturierte Aufklärung als mögliche Bausteine der Versorgung.<a href="#quelle-2" class="footnote">2</a></p>
+  <p>Welche Bewegungsform am besten wirkt, lässt sich aus den Studien nicht ableiten. Ob Krafttraining, Yoga oder Pilates: Entscheidend sind die eigenen Vorlieben, der Alltag und die Anleitung durch qualifizierte Therapeuten.<a href="#quelle-1" class="footnote">1</a></p>
+  <div class="note">Wirksamkeit zeigt sich in Studien als Durchschnitt über viele Menschen. Wie eine einzelne Person reagiert, lässt sich daraus nicht vorhersagen. Übungen, Dosierung und Tempo stimmt Ihre Praxis auf Sie ab.</div>
+
+  <h2><span class="num">06</span> Bettruhe und passive Verfahren</h2>
+  <p>Von Bettruhe rät die deutsche Leitlinie ausdrücklich ab. In Studien hatte Bettruhe entweder keinen Effekt oder sie führte zu stärkeren Schmerzen, langsamerer Besserung und längeren Krankschreibungen.<a href="#quelle-1" class="footnote">1</a></p>
+  <p>Manche Verfahren können laut deutscher Leitlinie eingesetzt werden: Wärme zur Selbstanwendung, kombiniert mit aktiven Maßnahmen, und manuelle Therapie.<a href="#quelle-1" class="footnote">1</a> Auch die Weltgesundheitsorganisation nennt Massage und Wirbelsäulenmanipulation als mögliche Bausteine der Versorgung bei chronischen Kreuzschmerzen.<a href="#quelle-2" class="footnote">2</a></p>
+  <p>Für einige Verfahren rät die Weltgesundheitsorganisation bei chronischen Kreuzschmerzen dagegen von einer routinemäßigen Anwendung ab: Traktion (Streckbehandlung), therapeutischer Ultraschall, TENS (Reizstrom über die Haut) sowie Stützgurte und Bandagen.<a href="#quelle-2" class="footnote">2</a></p>
+  <p>Der Grund: Kein passives Verfahren soll wie ein Ersatz für die stark empfohlene Aktivität wirken. Genau darin sehen die Autoren der deutschen Leitlinie einen möglichen Schaden, weil so Passivität gefördert wird.<a href="#quelle-1" class="footnote">1</a></p>
+
+  <h2><span class="num">07</span> Was das für Bewegung heißt</h2>
+  <p>Die deutsche Leitlinie hält als Grundsatz fest: Körperliche Bewegung verursacht keine Schäden, sondern fördert eine Linderung der Beschwerden.<a href="#quelle-1" class="footnote">1</a> Empfohlen wird, die täglichen Aktivitäten so weit wie möglich beizubehalten oder bald schrittweise wieder aufzunehmen.<a href="#quelle-1" class="footnote">1</a> Was für Sie eine passende Belastung ist, legt Ihre Praxis gemeinsam mit Ihnen fest.</p>
+
+  <div class="safety">
+    <h2>Wann Sie sich melden sollten</h2>
+    <p style="font-size: 0.95rem; margin-bottom: 0.8rem;">Allgemeine Sicherheitshinweise. In diesen Fällen ist eine erneute Rücksprache mit Ihrer Praxis oder eine ärztliche Abklärung sinnvoll:</p>
+    <ul>
+      <li>Neu aufgetretene Probleme beim Wasserlassen oder Stuhlgang, oder Taubheitsgefühl im Genital- oder Gesäßbereich</li>
+      <li>Lähmungserscheinungen oder zunehmende Schwäche in einem oder beiden Beinen</li>
+      <li>In das Bein ausstrahlende Schmerzen, verbunden mit Taubheit oder Kribbeln</li>
+      <li>Schmerzen nach einem Unfall oder Sturz</li>
+      <li>Fieber, Schüttelfrost oder ungewollter Gewichtsverlust</li>
+      <li>Starke nächtliche Schmerzen oder Schmerzen, die in Rückenlage zunehmen</li>
+      <li>Beschwerden, die sich trotz Behandlung deutlich verschlechtern oder über längere Zeit nicht bessern</li>
+    </ul>
+    <p style="font-size: 0.95rem; margin-top: 0.8rem; margin-bottom: 0;">Im Zweifel gilt: lieber einmal mehr nachfragen.</p>
+  </div>
+
+  <footer>
+    <h3>Prüfung und Transparenz</h3>
+    <table class="meta-table">
+      <tr><td>Prüfstatus</td><td>Entwurf, noch nicht fachlich geprüft</td></tr>
+      <tr><td>Erstellt am</td><td>04.07.2026</td></tr>
+      <tr><td>Erstellt von</td><td>Philip Zebrowski</td></tr>
+      <tr><td>Geprüft von</td><td>—</td></tr>
+      <tr><td>Geprüft am</td><td>—</td></tr>
+      <tr><td>Nächste Prüfung</td><td>spätestens 12 Monate nach Freigabe, zudem unmittelbar nach Erscheinen der überarbeiteten NVL Kreuzschmerz</td></tr>
+      <tr><td>Änderungsverlauf</td><td>04.07.2026 Erstentwurf erstellt<br>04.07.2026 Sprachliche Überarbeitung, erneute Quellenprüfung</td></tr>
+    </table>
+
+    <p style="font-size: 0.9rem;">Leitliniengrundlage. Diese Seite stützt sich vorrangig auf die deutsche S3-Leitlinie „Nicht-spezifischer Kreuzschmerz" (Nationale VersorgungsLeitlinie, AWMF-Register nvl-007, 2. Auflage 2017). Deren formale Gültigkeit ist im März 2022 abgelaufen; eine Überarbeitung ist bei der AWMF angemeldet, aber noch nicht erschienen. Die Kernempfehlungen werden deshalb zusätzlich gegen die aktuelle Leitlinie der Weltgesundheitsorganisation von 2023 abgeglichen. Sobald die überarbeitete deutsche Leitlinie erscheint, wird diese Seite dagegen geprüft.</p>
+
+    <div class="disclaimer">Diese Seite dient der allgemeinen Information und ersetzt keine individuelle Untersuchung, Diagnose oder Beratung. Sie nennt keine Diagnose. Bei akuten oder anhaltenden Beschwerden wenden Sie sich an Ihre Praxis oder Ihre Ärztin oder Ihren Arzt.</div>
+
+    <h3>Quellenverzeichnis</h3>
+    <p style="font-size: 0.88rem; color: var(--ink-soft);">Jede inhaltliche Aussage oben ist mit der entsprechenden Nummer belegt. Tippen Sie auf eine Nummer im Text, um direkt zur Quelle zu springen. Reihenfolge nach Evidenzstufe.</p>
+
+    <div class="source" id="quelle-1">
+      <div class="source-num">1</div>
+      <div>
+        <div class="source-type">Leitlinie (S3), Leitquelle</div>
+        <div class="source-body">Bundesärztekammer (BÄK), Kassenärztliche Bundesvereinigung (KBV), Arbeitsgemeinschaft der Wissenschaftlichen Medizinischen Fachgesellschaften (AWMF). Nationale VersorgungsLeitlinie Nicht-spezifischer Kreuzschmerz. 2. Auflage, Version 1, 2017. AWMF-Register-Nr. nvl-007. Gültigkeit im März 2022 abgelaufen, Überarbeitung angemeldet. <a href="https://register.awmf.org/de/leitlinien/detail/nvl-007" target="_blank" rel="noopener">register.awmf.org/.../nvl-007</a></div>
+        <a href="#top" class="back-to-top">↑ zurück nach oben</a>
+      </div>
+    </div>
+
+    <div class="source" id="quelle-2">
+      <div class="source-num">2</div>
+      <div>
+        <div class="source-type">Leitlinie (WHO)</div>
+        <div class="source-body">World Health Organization. WHO guideline for non-surgical management of chronic primary low back pain in adults in primary and community care settings. Genf: WHO; 2023. ISBN 978-92-4-008178-9. <a href="https://www.who.int/publications/i/item/9789240081789" target="_blank" rel="noopener">who.int/publications/i/item/9789240081789</a></div>
+        <a href="#top" class="back-to-top">↑ zurück nach oben</a>
+      </div>
+    </div>
+
+    <div class="source" id="quelle-3">
+      <div class="source-num">3</div>
+      <div>
+        <div class="source-type">Systematischer Review / Meta-Analyse (Cochrane)</div>
+        <div class="source-body">Hayden JA, Ellis J, Ogilvie R, Malmivaara A, van Tulder MW. Exercise therapy for chronic low back pain. Cochrane Database Syst Rev. 2021;9(9):CD009790. <a href="https://doi.org/10.1002/14651858.CD009790.pub2" target="_blank" rel="noopener">doi.org/10.1002/14651858.CD009790.pub2</a></div>
+        <a href="#top" class="back-to-top">↑ zurück nach oben</a>
+      </div>
+    </div><div class="disclaimer" style="margin-top: 2rem;">
+      <a href="ueber.html">Über Patho-Cards</a> · <a href="Impressum.html">Impressum</a> · <a href="Datenschutz.html">Datenschutz</a>
+    </div>
+  </footer>
+
+</div>
+<script>
+  (function () {
+    var WORKER_URL = "https://patho-cards-counter.philipzebrowski.workers.dev/count-ruecken";
+
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("test") === "1") {
+      return;
+    }
+
+    fetch(WORKER_URL, { method: "POST" }).catch(function () {
+      // Fehler beim Zaehlen sollen die Seite niemals beeintraechtigen
+    });
+  })();
+</script>
+</body>
+</html>
